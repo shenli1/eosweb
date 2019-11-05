@@ -95,8 +95,8 @@ module.exports 	= (router, config, request, log, mongoMain, MARIA) => {
 	});
 
 	router.post('/api/v1/get_account_tokens', (req, res) => {
-		 let account = req.body.account;
-	   	 request.get(config.tokensAPI + account).pipe(res);
+		//  let account = req.body.account;
+	   	//  request.get(config.tokensAPI + account).pipe(res);
 	});
 
 	/*
