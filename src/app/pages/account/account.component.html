@@ -4,13 +4,13 @@
     <mat-spinner class="spinner-color"></mat-spinner>
 </div>
 	
-	<h1 class="market-header">Account: {{ mainData?.account_name }}</h1>
+	<h1 class="market-header">账号: {{ mainData?.account_name }}</h1>
 
 	<div class="block-info">
 			
 			<div class="col-sm-12 block-info-line">
 				<div class="col-sm-3">
-					<strong class="block-info-header">Total Balance:</strong>
+					<strong class="block-info-header">总资产:</strong>
 				</div>
 				<div class="col-sm-9">
 					<strong>{{ balance?.toLocaleString() }} {{frontConfig?.totalBalance}}</strong> 
@@ -21,7 +21,7 @@
 			
 			<div class="col-sm-12 block-info-line" *ngIf="!frontConfig?.customBalance">
 				<div class="col-sm-3">
-					<strong class="block-info-header">Unstaked:</strong>
+					<strong class="block-info-header">可用资产:</strong>
 				</div>
 				<div class="col-sm-9">
 					<small><strong>{{ unstaked }} {{frontConfig?.totalBalance}}</strong></small>
@@ -30,7 +30,7 @@
 
 			<div class="col-sm-12 block-info-line" *ngIf="!frontConfig?.customBalance">
 				<div class="col-sm-3">
-					<strong class="block-info-header">Staked:</strong>
+					<strong class="block-info-header">抵押资产:</strong>
 				</div>
 				<div class="col-sm-9">
 					<small><strong>{{ (frontConfig?.coin !== 'WAX') ? mainData?.voter_info?.staked / 10000 : mainData?.voter_info?.staked / 100000000 }} {{frontConfig?.coin}}</strong></small>
@@ -106,7 +106,7 @@
 
 			<div class="col-sm-12 block-info-line" *ngIf="!frontConfig?.customBalance">
 				<div class="col-sm-3">
-					<strong class="block-info-header">Total Resources:</strong>
+					<strong class="block-info-header">总资源:</strong>
 				</div>
 				<div class="col-sm-9">
 					<span class="account-info"> CPU weight: <small>{{ mainData?.total_resources?.cpu_weight }}</small></span>
@@ -117,7 +117,7 @@
 
 			<div class="col-sm-12 block-info-line" *ngIf="!frontConfig?.customBalance">
 				<div class="col-sm-3">
-					<strong class="block-info-header">Delegated Bandwidth:</strong>
+					<strong class="block-info-header">抵押资源:</strong>
 				</div>
 				<div class="col-sm-9">
 					<span class="account-info"> CPU weight: <small>{{ mainData?.delegated_bandwidth?.cpu_weight }}</small></span>
@@ -129,7 +129,7 @@
 
 			<div class="col-sm-12 block-info-line" *ngIf="!frontConfig?.customBalance">
 				<div class="col-sm-3">
-					<strong class="block-info-header">Voter Info:</strong>
+					<strong class="block-info-header">投票信息:</strong>
 				</div>
 				<div class="col-sm-9">
 					<span class="account-info"> Last vote weight: <small>{{ mainData?.voter_info?.last_vote_weight }}</small></span>
@@ -150,7 +150,7 @@
 
 			<div class="col-sm-12 block-info-line">
 				<div class="col-sm-3">
-					<strong class="block-info-header">Created time:</strong>
+					<strong class="block-info-header">创建时间:</strong>
 				</div>
 				<div class="col-sm-9">
 					<small class="color-grey">{{ time }}</small>

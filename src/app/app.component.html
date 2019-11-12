@@ -8,8 +8,7 @@
   </a>
   <div class="main-search">
     <i class="fal fa-search" (click)="searchGlobal(search)"></i>
-    <input type="search" placeholder="Search by block, tx, account, address" [(ngModel)]="search"
-      (keyup)="onKey($event)">
+    <input type="search" placeholder="搜索区块ID,账户,公钥,交易ID..." [(ngModel)]="search" (keyup)="onKey($event)">
   </div>
   <ul class="pull-right main-nav-middle">
     <!-- <li *ngIf="!frontConfig?.customBalance"><button mat-button color="basic" routerLink="wallet"
@@ -21,7 +20,7 @@
     <li *ngIf="!frontConfig?.customBalance"><button mat-button color="basic" routerLink="ram"
         [ngClass]="{'nav-active': activeMenu()  === '/ram'}">Ram</button></li> -->
     <li><button mat-button color="basic" routerLink="producers"
-        [ngClass]="{'nav-active': activeMenu()  === '/producers'}">Producers</button></li>
+        [ngClass]="{'nav-active': activeMenu()  === '/producers'}">生产者</button></li>
     <!-- <li class="select-network" *ngIf="!frontConfig?.disableNets">
       <button mat-button [matMenuTriggerFor]="menu">{{netName}} <i class="fas fa-sort-down"></i></button>
       <mat-menu #menu="matMenu">
@@ -42,15 +41,13 @@
 
 <footer>
   <div class="container">
-    <div class="pull-left">Copyright © 2018 EOSweb <span *ngIf="!frontConfig?.disableVoteDonation">Donation - <a
-          routerLink="/account/{{frontConfig?.voteDonationAcc}}"
-          class="color-green"><strong>{{frontConfig?.voteDonationAcc}}</strong></a></span></div>
-    <ul class="pull-right">
+    <div class="pull-left">Copyright © 2019 国际链 <span *ngIf="!frontConfig?.disableVoteDonation"></span></div>
+    <!-- <ul class="pull-right">
       <li *ngFor="let elem of env.frontConfig.social;">
         <a [href]="elem.link" target="_blank"><i class="fab {{elem.icon}}" *ngIf="elem.link"></i></a>
       </li>
       <li><a href="mailto:dev.eosweb.net@gmail.com">Support</a></li>
-    </ul>
+    </ul> -->
   </div>
 </footer>
 

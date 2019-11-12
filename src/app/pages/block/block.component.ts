@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy, ViewChild, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import * as moment from 'moment';
-import {MatDialog, MAT_DIALOG_DATA, MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
+import { MatDialog, MAT_DIALOG_DATA, MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
 import { MainService } from '../../services/mainapp.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { MainService } from '../../services/mainapp.service';
   templateUrl: './block.component.html',
   styleUrls: ['./block.component.css']
 })
-export class BlockPageComponent implements OnInit, OnDestroy{
+export class BlockPageComponent implements OnInit, OnDestroy {
   blockId;
   block;
   mainData;
@@ -22,80 +22,82 @@ export class BlockPageComponent implements OnInit, OnDestroy{
   spinner = false;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
-   /*@ViewChild(MatSort) sort: MatSort;*/
+  /*@ViewChild(MatSort) sort: MatSort;*/
 
-  constructor(private route: ActivatedRoute, 
-              protected http: HttpClient,
-              public dialog: MatDialog){}
+  constructor(private route: ActivatedRoute,
+    protected http: HttpClient,
+    public dialog: MatDialog) { }
 
-  getBlockData(blockId){
-      this.spinner = true;
-  		this.http.get(`/api/v1/get_block/${blockId}`)
-  				 .subscribe(
-                      (res: any) => {
-                          this.mainData = res;
-                          this.time = this.moment(this.mainData.timestamp).format('MMMM Do YYYY, h:mm:ss a');
-                          if (this.mainData.transactions && this.mainData.transactions.length){
-                              this.trxArr = this.createTransactionsArray(this.mainData.transactions);
-                              
-                              let ELEMENT_DATA: Element[] = this.trxArr;
-                              console.log(ELEMENT_DATA.length)
-                              this.dataSource = new MatTableDataSource<Element>(ELEMENT_DATA);
-                              setTimeout(() => this.dataSource.paginator = this.paginator);
-                              //console.log(this.trxArr);                              
-                          }
-                          this.spinner = false;
-                      },
-                      (error) => {
-                          console.error(error);
-                          this.spinner = false;
-                      });
+  getBlockData(blockId) {
+    this.spinner = true;
+    this.http.get(`/api/v1/get_block/${blockId}`)
+      .subscribe(
+        (res: any) => {
+          this.mainData = res;
+          console.log("this.mainData.timestamp");
+          console.log(this.mainData.timestamp);
+          this.time = this.moment(this.mainData.timestamp).utc().zone(+6).format('YYYY-MM-DD HH:mm:ss');
+          if (this.mainData.transactions && this.mainData.transactions.length) {
+            this.trxArr = this.createTransactionsArray(this.mainData.transactions);
+
+            let ELEMENT_DATA: Element[] = this.trxArr;
+            console.log(ELEMENT_DATA.length)
+            this.dataSource = new MatTableDataSource<Element>(ELEMENT_DATA);
+            setTimeout(() => this.dataSource.paginator = this.paginator);
+            //console.log(this.trxArr);                              
+          }
+          this.spinner = false;
+        },
+        (error) => {
+          console.error(error);
+          this.spinner = false;
+        });
   };
 
-  createTransactionsArray(data){
-        let result = [];
-      
-        data.forEach( elem => {
-            if (typeof elem.trx === 'string'){
-                return;
-            }
-              result.push({
-                  cpu: elem.cpu_usage_us,
-                  net: elem.net_usage_words,
-                  status: elem.status,
-                  hash: elem.trx.id,
-                  actions: elem.trx.transaction.actions,
-                  expiration: elem.trx.transaction.expiration
-              });
-        });
-        return result;
+  createTransactionsArray(data) {
+    let result = [];
+
+    data.forEach(elem => {
+      if (typeof elem.trx === 'string') {
+        return;
+      }
+      result.push({
+        cpu: elem.cpu_usage_us,
+        net: elem.net_usage_words,
+        status: elem.status,
+        hash: elem.trx.id,
+        actions: elem.trx.transaction.actions,
+        expiration: elem.trx.transaction.expiration
+      });
+    });
+    return result;
   }
 
-  openDialogMemo(event, data){
+  openDialogMemo(event, data) {
     let result = data;
     let json = false;
-    if (data.indexOf('{') >= 0 && data.indexOf('}') >= 0){
-        result = JSON.parse(data);
-        json = true;
+    if (data.indexOf('{') >= 0 && data.indexOf('}') >= 0) {
+      result = JSON.parse(data);
+      json = true;
     }
     this.dialog.open(DialogDataMemo, {
       data: {
-         result: result,
-         json: json
+        result: result,
+        json: json
       }
     });
   }
 
   ngOnInit() {
     this.block = this.route.params.subscribe(params => {
-       this.blockId = params['id'];
-       this.getBlockData(this.blockId);
+      this.blockId = params['id'];
+      this.getBlockData(this.blockId);
     });
   }
 
   ngOnDestroy() {
-    this.block.unsubscribe(); 
-  }	
+    this.block.unsubscribe();
+  }
 }
 
 @Component({
@@ -109,6 +111,6 @@ export class BlockPageComponent implements OnInit, OnDestroy{
 `,
 })
 export class DialogDataMemo {
-  constructor(@Inject(MAT_DIALOG_DATA) public data) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data) { }
 }
 
