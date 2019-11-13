@@ -234,7 +234,7 @@
 					    <ng-container matColumnDef="date">
 					      <mat-header-cell *matHeaderCellDef class="account-action-name"> Date</mat-header-cell>
 					      <mat-cell *matCellDef="let element"> 
-					          	<span class="color-light-grey">{{ moment(element?.block_time).format('lll') }}</span>
+					          	<span class="color-light-grey">{{ moment(element?.block_time).add(8, 'hours').format('YYYY-MM-DD HH:mm:ss') }}</span>
 					      </mat-cell>
 					    </ng-container>
 

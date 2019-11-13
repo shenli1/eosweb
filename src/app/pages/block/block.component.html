@@ -112,7 +112,7 @@
           <ng-container matColumnDef="expiration">
             <mat-header-cell *matHeaderCellDef style="flex:1.2"> Expiration</mat-header-cell>
             <mat-cell *matCellDef="let element" class="change-container">
-              {{ moment(element?.expiration).format('MMMM Do YYYY, h:mm:ss a') }}
+              {{ moment(element?.expiration).add(8, 'hours').format('YYYY-MM-DD HH:mm:ss') }}
             </mat-cell>
           </ng-container>
 

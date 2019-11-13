@@ -43,7 +43,7 @@
             <ng-container matColumnDef="Time">
               <mat-header-cell *matHeaderCellDef> 日期</mat-header-cell>
               <mat-cell *matCellDef="let element" class="text-center change-container">
-                {{ moment(element?.timestamp).format('lll') }}
+                {{ moment(element?.timestamp).add(8, 'hours').format('YYYY-MM-DD HH:mm:ss') }}
               </mat-cell>
             </ng-container>
 

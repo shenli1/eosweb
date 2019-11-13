@@ -50,10 +50,10 @@
           <mat-header-cell *matHeaderCellDef> 状态 </mat-header-cell>
           <mat-cell *matCellDef="let element" class="marketcap-container">
             <button mat-raised-button color="primary" class="status"
-              *ngIf="element?.index <= 36 && producer !== element.owner">生产者</button>
+              *ngIf="element?.index <= 37 && producer !== element.owner">Top37</button>
             <button mat-raised-button color="accent" class="status" *ngIf="producer === element.owner">出块中</button>
             <button mat-raised-button color="warn" class="status"
-              *ngIf="element?.index > 36 && producer !== element.owner">候选者</button>
+              *ngIf="element?.index > 37 && producer !== element.owner">候选者</button>
           </mat-cell>
         </ng-container>
 

@@ -26,7 +26,7 @@ export const environment = {
         logo: '/assets/images/eosweb.png',
         name: {
             big: 'cct',
-            small: 'web'
+            small: 'max'
         },
         nets: [{ name: 'Mainnet', url: 'https://eosweb.net', active: true },
         { name: 'Jungle', url: 'https://jungle.eosweb.net', active: false },

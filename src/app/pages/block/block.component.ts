@@ -34,9 +34,8 @@ export class BlockPageComponent implements OnInit, OnDestroy {
       .subscribe(
         (res: any) => {
           this.mainData = res;
-          console.log("this.mainData.timestamp");
-          console.log(this.mainData.timestamp);
-          this.time = this.moment(this.mainData.timestamp).utc().zone(+6).format('YYYY-MM-DD HH:mm:ss');
+          var tt = this.moment(this.mainData.timestamp);
+          this.time = this.moment(this.mainData.timestamp).add(8, 'hours').format('YYYY-MM-DD HH:mm:ss');
           if (this.mainData.transactions && this.mainData.transactions.length) {
             this.trxArr = this.createTransactionsArray(this.mainData.transactions);
 
