@@ -11,8 +11,11 @@
 
       <div class="col-sm-12 block-info-line">
         <div class="col-sm-3">
-          <img src="{{bpData?.org?.branding?.logo_256}}" alt="" class="branding-logo">
+          <strong class="block-info-header">账号:</strong>
         </div>
+        <!-- <div class="col-sm-3">
+          <img src="{{bpData?.org?.branding?.logo_256}}" alt="" class="branding-logo">
+        </div> -->
         <div class="col-sm-9">
           <strong class="account-name"><a [routerLink]="['/account', producerId]"
               class="color-green">{{producerId}}</a></strong>
@@ -115,6 +118,8 @@
             </strong>
           </span>
         </div>
+      </div>
+      <div class="col-sm-12 block-info-line">
       </div>
 
       <!-- <div class="col-sm-12 block-info-line">

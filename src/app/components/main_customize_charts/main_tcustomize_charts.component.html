@@ -36,48 +36,81 @@
         </div>
       </div> -->
 
-      <div class="col-sm-3 draggble chart-child-container customize-containers-not-active grid-cs-5-inline"
-        [style.width]="frontConfig?.convertToUSD ? '' : '19.68%'">
-        <div class="color-grey-text">内存价格 </div>
-        <div class="chart-child-container-dollar">
-          <div class="pull-left color-green"> {{ ramPrice }} </div>
-          <small style="margin-left: 5px"> {{frontConfig?.coin}}/kb </small>
-        </div>
-      </div>
-
-      <div class="col-sm-3 draggble chart-child-container customize-containers-not-active grid-cs-5-inline"
-        [style.width]="frontConfig?.convertToUSD ? '' : '19.68%'">
-        <div class="color-grey-text">账户</div>
-        <div class="chart-child-container-dollar">
-          <div class="pull-left color-green"> {{ aggragationData?.accounts?.toLocaleString() }}</div>
-        </div>
-      </div>
-
-      <div class="col-sm-2 draggble chart-child-container customize-containers-not-active grid-cs-5-inline"
-        [style.width]="frontConfig?.convertToUSD ? '' : '19.68%'">
-        <div class="color-grey-text">最新区块</div>
-        <div class="chart-child-container-dollar">
-          <div class="pull-left color-green"> {{ blockchainData?.head_block_num?.toLocaleString() }}</div>
-        </div>
-      </div>
-
-      <div class="col-sm-2 draggble chart-child-container customize-containers-not-active grid-cs-5-inline"
-        [style.width]="frontConfig?.convertToUSD ? '' : '19.68%'">
-        <div class="color-grey-text">最新交易</div>
-        <div class="chart-child-container-dollar">
-          <div class="pull-left color-green"> {{ aggragationData?.actions?.toLocaleString() }}</div>
-        </div>
-      </div>
-
-      <div class="col-sm-2 draggble chart-child-container customize-containers-not-active grid-cs-5-inline"
-        [style.width]="frontConfig?.convertToUSD ? '' : '19.68%'">
-        <div class="color-grey-text">生产者</div>
-        <div class="chart-child-container-dollar">
-          <div class="pull-left color-green">
-            <a routerLink="/producer/{{producer}}" class="color-green">{{ producer }}</a>
+      <div class="customize-containers-block">
+        <div class="customize-containers-line">
+          <div class="col-sm-3 draggble chart-child-container customize-containers-not-active grid-cs-5-inline"
+            [style.width]="frontConfig?.convertToUSD ? '' : '19.68%'">
+            <div class="color-grey-text">内存价格 </div>
+            <div class="chart-child-container-dollar">
+              <div class="pull-left color-green"> {{ ramPrice }} </div>
+              <small style="margin-left: 5px"> {{frontConfig?.coin}}/kb </small>
+            </div>
           </div>
+          <div class="customize-containers-right"></div>
         </div>
+        <div class="customize-containers-under"></div>
       </div>
+
+      <div class="customize-containers-block">
+        <div class="customize-containers-line">
+          <div class="col-sm-3 draggble chart-child-container customize-containers-not-active grid-cs-5-inline"
+            [style.width]="frontConfig?.convertToUSD ? '' : '19.68%'">
+            <div class="color-grey-text">账户</div>
+            <div class="chart-child-container-dollar">
+              <div class="pull-left color-green"> {{ aggragationData?.accounts?.toLocaleString() }}</div>
+            </div>
+          </div>
+          <div class="customize-containers-right"></div>
+        </div>
+        <div class="customize-containers-under"></div>
+      </div>
+
+
+      <div class="customize-containers-block">
+        <div class="customize-containers-line">
+          <div class="col-sm-2 draggble chart-child-container customize-containers-not-active grid-cs-5-inline"
+            [style.width]="frontConfig?.convertToUSD ? '' : '19.68%'">
+            <div class="color-grey-text">最新区块</div>
+            <div class="chart-child-container-dollar">
+              <div class="pull-left color-green"> {{ blockchainData?.head_block_num?.toLocaleString() }}</div>
+            </div>
+          </div>
+          <div class="customize-containers-right"></div>
+        </div>
+        <div class="customize-containers-under"></div>
+      </div>
+
+      <div class="customize-containers-block">
+        <div class="customize-containers-line">
+          <div class="col-sm-2 draggble chart-child-container customize-containers-not-active grid-cs-5-inline"
+            [style.width]="frontConfig?.convertToUSD ? '' : '19.68%'">
+            <div class="color-grey-text">最新交易</div>
+            <div class="chart-child-container-dollar">
+              <div class="pull-left color-green"> {{ aggragationData?.actions?.toLocaleString() }}</div>
+            </div>
+          </div>
+          <div class="customize-containers-right"></div>
+        </div>
+        <div class="customize-containers-under"></div>
+      </div>
+
+      <div class="customize-containers-block pull-right">
+        <div class="customize-containers-line">
+          <div class="col-sm-2 draggble chart-child-container customize-containers-not-active grid-cs-5-inline"
+            [style.width]="frontConfig?.convertToUSD ? '' : '19.68%'">
+            <div class="color-grey-text">生产者</div>
+            <div class="chart-child-container-dollar">
+              <div class="pull-left color-green">
+                <a routerLink="/producer/{{producer}}" class="color-green">{{ producer }}</a>
+              </div>
+            </div>
+          </div>
+          <div class="customize-containers-right"></div>
+        </div>
+        <div class="customize-containers-under"></div>
+      </div>
+
+
 
       <div class="col-sm-12">
         <div class="pull-left container-tps">

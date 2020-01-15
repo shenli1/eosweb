@@ -3,8 +3,8 @@
 <nav class="main-navigation">
   <a routerLink="" class="logo pull-left">
     <img src="{{frontConfig?.logo}}" width="30" alt="">
-    <span class="name-explorer">{{frontConfig?.name?.small}}</span>
-    <span class="name-eos">{{frontConfig?.name?.big}}</span>
+    <!-- <span class="name-explorer">{{frontConfig?.name?.small}}</span>
+    <span class="name-eos">{{frontConfig?.name?.big}}</span> -->
   </a>
   <div class="main-search">
     <i class="fal fa-search" (click)="searchGlobal(search)"></i>
@@ -27,12 +27,12 @@
         <a *ngFor="let net of networks;" href="{{net?.url}}" mat-menu-item>{{net.name}}</a>
       </mat-menu>
     </li> -->
-    <li>
+    <!-- <li>
       <a class="telegram-button" (click)="darkEnable(!darkTheme)">
         <i class="fas fa-moon" *ngIf="!darkTheme"></i>
         <i class="fas fa-sun" *ngIf="darkTheme"></i>
       </a>
-    </li>
+    </li> -->
   </ul>
 </nav>
 
@@ -41,7 +41,7 @@
 
 <footer>
   <div class="container">
-    <div class="pull-left">Copyright © 2019 国际链 <span *ngIf="!frontConfig?.disableVoteDonation"></span></div>
+    <div>Copyright © 2019 华夏文化产业链<span *ngIf="!frontConfig?.disableVoteDonation"></span></div>
     <!-- <ul class="pull-right">
       <li *ngFor="let elem of env.frontConfig.social;">
         <a [href]="elem.link" target="_blank"><i class="fab {{elem.icon}}" *ngIf="elem.link"></i></a>

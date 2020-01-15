@@ -76,10 +76,10 @@ export const environment = {
         coin: 'CCT',
         bp: 'bp.json',
         tokenContract: 'eosio.token',
-        totalBalance: 'WAX',
+        totalBalance: 'CCT',
         convertToUSD: true,
         customBalance: false,
-        logo: '/assets/images/wax.png',
+        logo: '/assets/images/eosweb.png',
         name: {
             big: 'cct',
             small: 'web'

@@ -13,11 +13,11 @@
       <span *ngIf="frontConfig.coin !== 'WAX'">Votes: {{ chainNumber?.toLocaleString() }} ({{chainPercentage}}%)</span>
     </div>
 
-    <div class="col-sm-4 filter-header">
+    <!-- <div class="col-sm-4 filter-header">
       <mat-form-field>
         <input matInput (keyup)="applyFilter($event.target.value)" placeholder="搜索生产者帐户名">
       </mat-form-field>
-    </div>
+    </div> -->
     <!--<h3 class="producer-candidate pull-right"><small>our producer candidate: </small> 
   <strong><a routerLink="/producer/eoswebnetbp1" class="color-green">eoswebnetbp1</a></strong>
 </h3>-->
@@ -38,7 +38,7 @@
           <mat-header-cell *matHeaderCellDef class="url-flex"> 帐户名 </mat-header-cell>
           <mat-cell *matCellDef="let element" class="marketcap-container url-flex">
             <img [src]="(element?.image) ? element?.image : '/assets/images/eosio.png'" class="branding-logo" alt=""
-              width="40">
+              width="24">
             <a [routerLink]="['/producer', element?.owner ]" [ngClass]="{'name-img': element?.image }"
               class="color-green" id="{{element?.owner}}">
               <strong>{{ element?.owner }}</strong>
